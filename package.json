@@ -1,0 +1,17 @@
+{
+  "name": "parking-cost-calculator",
+  "version": "1.0.0",
+  "description": "QA Automation Assesment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Santiago Bernal",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.5.0"
+  },
+  "dependencies": {
+    "npx": "^10.2.2"
+  }
+}
