@@ -1,6 +1,7 @@
 /// <reference types="Cypress" />
 
 function convert12To24(time12, ampm = "AM") {
+    
     let [hours, minutes] = time12.split(":");
   
     if (hours === "12") {

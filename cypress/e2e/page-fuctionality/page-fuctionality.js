@@ -25,5 +25,37 @@ describe('Validate Edge Cases', () => {
         //cy.get('[href*="StartingDate"]').click();
         //cy.get("@windowOpen").should("be.called");
 
-    }) 
+    });
+    it('Time used should remain the same', () => {
+        let startDate = "06/04/2023";
+        let endDate = "06/05/2023";
+
+        let startHour = "12:00"
+        let endHour = "3:30"
+
+
+        cy.get("#ParkingLot").select("Valet Parking");
+
+        cy.get("#StartingDate").clear().type(startDate);
+        cy.get("#LeavingDate").clear().type(endDate);
+
+        cy.get("#StartingTime").clear().type(startHour);
+        cy.get("#LeavingTime").clear().type(endHour);
+   
+
+        cy.get("input[name='StartingTimeAMPM'][type='radio']").eq(0).check();
+        cy.get("input[name='LeavingTimeAMPM'][type='radio']").eq(1).check();
+
+        cy.get("[type='submit']").click();
+
+        cy.get("#StartingDate").invoke('val').should('eq', startDate);
+        cy.get("#LeavingDate").invoke('val').should('eq', endDate);
+
+        cy.get("#StartingTime").invoke('val').should('eq', startHour);
+        cy.get("#LeavingTime").invoke('val').should('eq', endHour);
+
+        cy.get("input[name='StartingTimeAMPM'][type='radio']").eq(0).should('be.checked');
+        cy.get("input[name='LeavingTimeAMPM'][type='radio']").eq(1).should('be.checked');;
+
+    })
 });
