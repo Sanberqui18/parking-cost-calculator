@@ -13,6 +13,7 @@ module.exports = defineConfig({
     trashAssetsBeforeRuns: true,
     video: true,
     videoUploadOnPasses: false,
+    chromeWebSecurity: false,
     retries: {
       openMode: 2,
       runMode: 2

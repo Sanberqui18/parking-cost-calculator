@@ -1,8 +1,9 @@
 /// <reference types="Cypress" />
 
 describe('Validate Edge Cases', () => {
-    before(() => {
+    beforeEach(() => {
         cy.visit("");
+        
     });
 
     it('Non price should be generated when time imputs are empty', () => {
@@ -14,4 +15,15 @@ describe('Validate Edge Cases', () => {
             expect(error).to.eql("ERROR! Enter A Correctly Formatted Date");
         })
     });
+
+
+    it('Clicking on a Calendar icon opens a calendar pop-uo', () => {
+        cy.window().then((win) => {
+            const stub = cy.stub(win, 'open').as("windowOpen");
+        })
+        
+        //cy.get('[href*="StartingDate"]').click();
+        //cy.get("@windowOpen").should("be.called");
+
+    }) 
 });
