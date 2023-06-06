@@ -17,7 +17,7 @@ describe('Validate Edge Cases', () => {
     });
 
 
-    it('Clicking on a Calendar icon opens a calendar pop-uo', () => {
+    it('Clicking on a Calendar icon opens a calendar pop-up', () => {
         cy.window().then((win) => {
             const stub = cy.stub(win, 'open').as("windowOpen");
         })
