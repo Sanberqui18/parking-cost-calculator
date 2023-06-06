@@ -15,8 +15,8 @@ module.exports = defineConfig({
     videoUploadOnPasses: false,
     chromeWebSecurity: false,
     retries: {
-      openMode: 2,
-      runMode: 2
+      openMode: 1,
+      runMode: 1
     }
 
   },
