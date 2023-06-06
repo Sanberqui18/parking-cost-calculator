@@ -8,7 +8,7 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v2
     - name: Set node version to v14.16.1
-      uses: actions/setup-node@v23
+      uses: actions/setup-node@v3
       with:
         node-version: 14.16.1
         cache: "npm"
