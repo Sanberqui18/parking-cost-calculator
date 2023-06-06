@@ -1,0 +1,16 @@
+name: Cypress Parking Cost Calculator
+on: push
+
+jobs:
+  ci:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Set node version to v14.16.1
+      uses: actions/setup-node@v23
+      with:
+        node-version: 14.16.1
+        cache: "npm"
+    - run: npm install
+    - run: npm run cypress-regression-pack
