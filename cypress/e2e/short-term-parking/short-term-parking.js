@@ -19,7 +19,6 @@ function convert12To24(time12, ampm = "AM") {
     return hours + ":" + minutes;
 }
   
-
 function calculateTimeDifference(startDateString, endDateString, startHour = "00:00", endHour = "00:00"){
 
     let startDateTimeString = startDateString + " " + startHour;
@@ -48,13 +47,13 @@ function timeElapsed(hours) {
     };
 }
 
-describe('Validate Valet Parking', () => {
+describe('Validate Short Term Parking', () => {
     beforeEach(() => {
         cy.visit("");
     });
 
-    it('Day Calculation is correct', () => {
 
+    it('Day Calculation is correct', () => {
         let startDate = "06/04/2023";
         let endDate = "06/05/2023";
 
@@ -62,15 +61,18 @@ describe('Validate Valet Parking', () => {
         let summary = timeElapsed(timeSpent);
         let expectedCost;
         
-        if(timeSpent > 5 && timeSpent < 24){
-            expectedCost = 18;
-        }else if(timeSpent >= 24){
-            expectedCost = Math.ceil(timeSpent/24) * 18;   
+        if(timeSpent >= 24){
+            expectedCost =  Math.ceil(timeSpent/24) * 24;
+        }else if(timeSpent > 1 && timeSpent < 24){
+            expectedCost = 2 + Math.ceil(((timeSpent - 1)/0.5)) * 1 
+            if(expectedCost > 24){
+                expectedCost = 24;
+            }
         }else{
-            expectedCost = 12;
+            expectedCost = 2;
         }
 
-        cy.get("#ParkingLot").select("Valet Parking");
+        cy.get("#ParkingLot").select("Short-Term Parking");
 
         cy.get("#StartingDate").clear().type(startDate);
         cy.get("#LeavingDate").clear().type(endDate);
@@ -91,7 +93,7 @@ describe('Validate Valet Parking', () => {
         });
     });
 
-    it('PM Hours Calculation is correct', () => {
+    it('PM < 1 Hours Calculation is correct', () => {
         
         let startDate = "06/05/2023";
         let endDate = "06/05/2023";
@@ -106,7 +108,7 @@ describe('Validate Valet Parking', () => {
         let expectedCost;
         
 
-        cy.get("#ParkingLot").select("Valet Parking");
+        cy.get("#ParkingLot").select("Short-Term Parking");
 
         cy.get("#StartingDate").clear().type(startDate);
         cy.get("#LeavingDate").clear().type(endDate);
@@ -123,12 +125,15 @@ describe('Validate Valet Parking', () => {
         timeSpent = calculateTimeDifference(startDate, endDate, startConverted, endConverted);
         let summary = timeElapsed(timeSpent);
 
-        if(timeSpent > 5 && timeSpent < 24){
-            expectedCost = 18;
-        }else if(timeSpent >= 24){
-            expectedCost = Math.ceil(timeSpent/24) * 18;   
+        if(timeSpent >= 24){
+            expectedCost =  Math.ceil(timeSpent/24) * 24;
+        }else if(timeSpent > 1 && timeSpent < 24){
+            expectedCost = 2 + Math.ceil(((timeSpent - 1)/0.5)) * 1 
+            if(expectedCost > 24){
+                expectedCost = 24;
+            }
         }else{
-            expectedCost = 12;
+            expectedCost = 2;
         }
 
         cy.get("[type='submit']").click();
@@ -147,7 +152,7 @@ describe('Validate Valet Parking', () => {
         });
     });
 
-    it('AM Hours Calculation is correct', () => {
+    it('AM > 1 Hours Calculation is correct', () => {
         
         let startDate = "06/05/2023";
         let endDate = "06/05/2023";
@@ -155,14 +160,14 @@ describe('Validate Valet Parking', () => {
         let startHour = "12:00"
         let startAMPM = "AM "
 
-        let endHour = "3:30"
+        let endHour = "12:30"
         let endAMPM = "AM "
 
         let timeSpent;
         let expectedCost;
         
 
-        cy.get("#ParkingLot").select("Valet Parking");
+        cy.get("#ParkingLot").select("Short-Term Parking");
 
         cy.get("#StartingDate").clear().type(startDate);
         cy.get("#LeavingDate").clear().type(endDate);
@@ -179,14 +184,16 @@ describe('Validate Valet Parking', () => {
         timeSpent = calculateTimeDifference(startDate, endDate, startConverted, endConverted);
         let summary = timeElapsed(timeSpent);
 
-        if(timeSpent > 5 && timeSpent < 24){
-            expectedCost = 18;
-        }else if(timeSpent >= 24){
-            expectedCost = Math.ceil(timeSpent/24) * 18;   
+        if(timeSpent >= 24){
+            expectedCost =  Math.ceil(timeSpent/24) * 24;
+        }else if(timeSpent > 1 && timeSpent < 24){
+            expectedCost = 2 + Math.ceil(((timeSpent - 1)/0.5)) * 1 
+            if(expectedCost > 24){
+                expectedCost = 24;
+            }
         }else{
-            expectedCost = 12;
+            expectedCost = 2;
         }
-
         cy.get("[type='submit']").click();
 
         cy.get(".SubHead > b").then((value) => {
@@ -218,7 +225,7 @@ describe('Validate Valet Parking', () => {
         let expectedCost;
         
 
-        cy.get("#ParkingLot").select("Valet Parking");
+        cy.get("#ParkingLot").select("Short-Term Parking");
 
         cy.get("#StartingDate").clear().type(startDate);
         cy.get("#LeavingDate").clear().type(endDate);
@@ -235,12 +242,15 @@ describe('Validate Valet Parking', () => {
         timeSpent = calculateTimeDifference(startDate, endDate, startConverted, endConverted);
         let summary = timeElapsed(timeSpent);
 
-        if(timeSpent > 5 && timeSpent < 24){
-            expectedCost = 18;
-        }else if(timeSpent >= 24){
-            expectedCost = Math.ceil(timeSpent/24) * 18;   
+        if(timeSpent >= 24){
+            expectedCost =  Math.ceil(timeSpent/24) * 24;
+        }else if(timeSpent > 1 && timeSpent < 24){
+            expectedCost = 2 + Math.ceil(((timeSpent - 1)/0.5)) * 1 
+            if(expectedCost > 24){
+                expectedCost = 24;
+            }
         }else{
-            expectedCost = 12;
+            expectedCost = 2;
         }
 
         cy.get("[type='submit']").click();
@@ -274,7 +284,7 @@ describe('Validate Valet Parking', () => {
         let expectedCost;
         
 
-        cy.get("#ParkingLot").select("Valet Parking");
+        cy.get("#ParkingLot").select("Short-Term Parking");
 
         cy.get("#StartingDate").clear().type(startDate);
         cy.get("#LeavingDate").clear().type(endDate);
@@ -291,12 +301,15 @@ describe('Validate Valet Parking', () => {
         timeSpent = calculateTimeDifference(startDate, endDate, startConverted, endConverted);
         let summary = timeElapsed(timeSpent);
 
-        if(timeSpent > 5 && timeSpent < 24){
-            expectedCost = 18;
-        }else if(timeSpent >= 24){
-            expectedCost = Math.ceil(timeSpent/24) * 18;   
+        if(timeSpent >= 24){
+            expectedCost =  Math.ceil(timeSpent/24) * 24;
+        }else if(timeSpent > 1 && timeSpent < 24){
+            expectedCost = 2 + Math.ceil(((timeSpent - 1)/0.5)) * 1 
+            if(expectedCost > 24){
+                expectedCost = 24;
+            }
         }else{
-            expectedCost = 12;
+            expectedCost = 2;
         }
 
         cy.get("[type='submit']").click();
@@ -313,5 +326,5 @@ describe('Validate Valet Parking', () => {
             const timeString = message.text();
             expect(timeString).to.contains(`(${summary.days} Days, ${summary.hours} Hours, ${summary.minutes} Minutes)`);
         });
-    });    
+    });   
 });
