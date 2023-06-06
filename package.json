@@ -4,12 +4,22 @@
   "description": "QA Automation Assesment",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "open": "npx cypress open",
+    "triggerAll-tests-headless": "npx cypress run",
+    "triggerAll-tests-headed": "npx cypress run --headed",
+    "triggerAll-tests-dashboard": "npx cypress run --record --key 29271513-391d-4635-b753-d7ed54c10490",
+    "triggerAll-tests-chrome": "npx cypress run --browser chrome",
+    "delete-results": "rm -rf cypress/results/* || true",
+    "mochawesome-merge": "npx mochawesome-merge cypress/results/mochawesome/*.json > mochawesome.json && npx marge mochawesome.json",
+    "delete-mochawesome-report": "rm -rf mochawesome-report/* || true",
+    "cypress-regression-pack": "npm run delete-reults && npm run delete-mochawesome-report && npm run triggerAll-tests-headless && npm run mochawesome-merge"
   },
   "author": "Santiago Bernal",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.5.0"
+    "cypress": "^12.5.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-report-generator": "^6.2.0"
   },
   "dependencies": {
     "npx": "^10.2.2"

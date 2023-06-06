@@ -1,6 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  projectId: 'xwbn77',
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
@@ -17,7 +18,13 @@ module.exports = defineConfig({
     retries: {
       openMode: 1,
       runMode: 1
-    }
-
+    },
   },
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/results/mochawesome',
+    overwrite: false,
+    html: false,
+    json: true,
+  }
 });
