@@ -59,13 +59,13 @@ function costCalculation(hours){
     console.log(spentHours);
     console.log(discountHours);
 
-    let totalCost = Math.ceil((spentHours - discountHours)/24) * 10;
+    let totalCost = Math.ceil((spentHours - discountHours)/24) * 9;
     console.log(totalCost);
 
     return totalCost;
 }
 
-describe('Validate Long-Term Surface Parking', () => {
+describe('Validate Economy Parking', () => {
     beforeEach(() => {
         cy.visit("");
     });
@@ -82,14 +82,14 @@ describe('Validate Long-Term Surface Parking', () => {
             expectedCost = costCalculation(timeSpent);
         }else if(timeSpent > 1 && timeSpent < 24){
             expectedCost = Math.ceil(timeSpent) * 2
-            if(expectedCost > 10){
-                expectedCost = 10;
+            if(expectedCost > 9){
+                expectedCost = 9;
             }
         }else{
             expectedCost = 2;
         }
 
-        cy.get("#ParkingLot").select("Long-Term Surface Parking");
+        cy.get("#ParkingLot").select("Economy Parking");
 
         cy.get("#StartingDate").clear().type(startDate);
         cy.get("#LeavingDate").clear().type(endDate);
@@ -121,14 +121,14 @@ describe('Validate Long-Term Surface Parking', () => {
             expectedCost = costCalculation(timeSpent);
         }else if(timeSpent > 1 && timeSpent < 24){
             expectedCost = Math.ceil(timeSpent) * 2
-            if(expectedCost > 10){
-                expectedCost = 10;
+            if(expectedCost > 9){
+                expectedCost = 9;
             }
         }else{
             expectedCost = 2;
         }
 
-        cy.get("#ParkingLot").select("Long-Term Surface Parking");
+        cy.get("#ParkingLot").select("Economy Parking");
 
         cy.get("#StartingDate").clear().type(startDate);
         cy.get("#LeavingDate").clear().type(endDate);
@@ -163,7 +163,7 @@ describe('Validate Long-Term Surface Parking', () => {
         let expectedCost;
         
 
-        cy.get("#ParkingLot").select("Long-Term Surface Parking");
+        cy.get("#ParkingLot").select("Economy Parking");
 
         cy.get("#StartingDate").clear().type(startDate);
         cy.get("#LeavingDate").clear().type(endDate);
@@ -184,8 +184,8 @@ describe('Validate Long-Term Surface Parking', () => {
             expectedCost = costCalculation(timeSpent);
         }else if(timeSpent > 1 && timeSpent < 24){
             expectedCost = Math.ceil(timeSpent) * 2
-            if(expectedCost > 10){
-                expectedCost = 10;
+            if(expectedCost > 9){
+                expectedCost = 9;
             }
         }else{
             expectedCost = 2;
@@ -221,7 +221,7 @@ describe('Validate Long-Term Surface Parking', () => {
         let expectedCost;
         
 
-        cy.get("#ParkingLot").select("Long-Term Surface Parking");
+        cy.get("#ParkingLot").select("Economy Parking");
 
         cy.get("#StartingDate").clear().type(startDate);
         cy.get("#LeavingDate").clear().type(endDate);
@@ -242,8 +242,8 @@ describe('Validate Long-Term Surface Parking', () => {
             expectedCost = costCalculation(timeSpent);
         }else if(timeSpent > 1 && timeSpent < 24){
             expectedCost = Math.ceil(timeSpent) * 2
-            if(expectedCost > 10){
-                expectedCost = 10;
+            if(expectedCost > 9){
+                expectedCost = 9;
             }
         }else{
             expectedCost = 2;
@@ -279,7 +279,7 @@ describe('Validate Long-Term Surface Parking', () => {
         let expectedCost;
         
 
-        cy.get("#ParkingLot").select("Long-Term Surface Parking");
+        cy.get("#ParkingLot").select("Economy Parking");
 
         cy.get("#StartingDate").clear().type(startDate);
         cy.get("#LeavingDate").clear().type(endDate);
@@ -300,8 +300,8 @@ describe('Validate Long-Term Surface Parking', () => {
             expectedCost = costCalculation(timeSpent);
         }else if(timeSpent > 1 && timeSpent < 24){
             expectedCost = Math.ceil(timeSpent) * 2
-            if(expectedCost > 10){
-                expectedCost = 10;
+            if(expectedCost > 9){
+                expectedCost = 9;
             }
         }else{
             expectedCost = 2;

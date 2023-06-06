@@ -72,7 +72,7 @@ describe('Validate Long-Term Garage Parking', () => {
    
     it(' 7 Day Calculation is Correct', () => {
         let startDate = "06/04/2023";
-        let endDate = "06/07/2023";
+        let endDate = "06/11/2023";
 
         let timeSpent = calculateTimeDifference(startDate, endDate);
         let summary = timeElapsed(timeSpent);
