@@ -23,3 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("calculateTimeDifference", (startDateString, endDateString) => {
+    let startDate = new Date(startDateString);
+    let endDate = new Date(endDateString);
+
+    let timeDifference = endDate.getTime() - startDate.getTime(); //Milliseconds
+
+    let hours = Math.floor(timeDifference / 1000 * 60 * 60);
+
+    return hours;
+})
