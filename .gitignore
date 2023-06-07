@@ -6,3 +6,5 @@ cypress/screenshots/*
 cypress/videos/*
 
 .DS_store
+
+mochawesome.json

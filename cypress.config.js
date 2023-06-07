@@ -18,10 +18,11 @@ module.exports = defineConfig({
     retries: {
       openMode: 1,
       runMode: 1
-    },
+    }
   },
-  reporter: 'mochawesome',
+  reporter: 'cypress-multi-reporters',
   reporterOptions: {
+    reportEnabled: "mochawesome",
     reportDir: 'cypress/results/mochawesome',
     overwrite: false,
     html: false,

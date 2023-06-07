@@ -1,0 +1,7 @@
+<testsuite name="Mocha Tests" tests="5" failures="0" errors="0" skipped="0" timestamp="Wed, 07 Jun 2023 00:07:44 GMT" time="11.276">
+<testcase classname="Validate Economy Parking" name=" 7 Day Calculation is Correct" time="2.853"/>
+<testcase classname="Validate Economy Parking" name=" Day Calculation is Correct" time="1.512"/>
+<testcase classname="Validate Economy Parking" name="PM &#x3C; 1 Hours Calculation is correct" time="2.353"/>
+<testcase classname="Validate Economy Parking" name="AM &#x3E; 1 Hours Calculation is correct" time="2.219"/>
+<testcase classname="Validate Economy Parking" name="Days and hours Calculation is correct" time="2.2"/>
+</testsuite>
